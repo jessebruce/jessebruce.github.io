@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jesse Bruce — Senior Software Engineer</title>
+<meta name="description" content="Senior software engineer, 8+ years across C#/.NET, TypeScript, C/C++, and Python. End-to-end platform modernization and internal Claude Code / MCP developer tooling.">
+<meta name="author" content="Jesse Bruce">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Jesse Bruce — Senior Software Engineer">
+<meta property="og:description" content="Platform modernization — installer, datastore, messaging, secrets — and the internal Claude Code / MCP developer tooling that scales an engineering org.">
+<meta property="og:url" content="https://jessebruce.github.io">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230E6E78'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' font-weight='bold' fill='%23fff' text-anchor='middle'%3EJB%3C/text%3E%3C/svg%3E">
+
+<style id="fonts">
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/SpaceGrotesk-Medium.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/SpaceGrotesk-Bold.woff2') format('woff2');}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/Inter-Regular.woff2') format('woff2');}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/Inter-Medium.woff2') format('woff2');}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/Inter-SemiBold.woff2') format('woff2');}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/JetBrainsMono-Regular.woff2') format('woff2');}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/JetBrainsMono-Medium.woff2') format('woff2');}
+</style>
+
+<style>
+  /* ---------- Tokens (light) — carried over from the résumé source ---------- */
+  :root{
+    --ink:#14171C; --ink-soft:#2D333C; --muted:#5A626C; --faint:#8C939D;
+    --accent:#0E6E78; --accent-deep:#0A4F57; --accent-tint:#EEF5F4;
+    --line:#E6E3DD; --line-soft:#EFEDE8;
+    --paper:#FFFFFF; --panel:#FBFAF8;
+    --display:'Space Grotesk',system-ui,sans-serif;
+    --body:'Inter',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+    --measure:74rem;
+  }
+  /* The accent has to lift off a dark ground to keep its contrast ratio. */
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ink:#E9EAED; --ink-soft:#C3C7CE; --muted:#949BA6; --faint:#6E7681;
+      --accent:#4FBDC9; --accent-deep:#7FD4DD; --accent-tint:#16242A;
+      --line:#2A2F37; --line-soft:#222731;
+      --paper:#0F1216; --panel:#141920;
+    }
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{transition:none !important;} }
+
+  body{
+    font-family:var(--body); color:var(--ink); background:var(--paper);
+    font-size:clamp(0.95rem, 0.9rem + 0.2vw, 1.02rem); line-height:1.6;
+    font-feature-settings:"kern" 1,"liga" 1,"calt" 1;
+  }
+
+  .wrap{ max-width:var(--measure); margin:0 auto; padding:clamp(2rem,5vw,4.5rem) clamp(1.25rem,5vw,3rem) 0; }
+  .wrap.tail{ padding-top:0; padding-bottom:clamp(2rem,5vw,4rem); }
+
+  a{ color:var(--accent); text-decoration-thickness:1px; text-underline-offset:3px; }
+  a:hover{ color:var(--accent-deep); }
+  :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
+
+  /* ---------- Masthead ---------- */
+  .masthead{ display:flex; justify-content:space-between; align-items:flex-end; gap:clamp(1rem,4vw,3rem); flex-wrap:wrap; padding-bottom:0.9rem; }
+  .name{ font-family:var(--display); font-weight:700; font-size:clamp(2.6rem,9vw,4.4rem);
+    letter-spacing:-0.03em; line-height:0.88; color:var(--ink); }
+  .name .dot{ color:var(--accent); }
+  .role-line{ margin-top:0.85rem; font-family:var(--mono); font-weight:500;
+    font-size:clamp(0.68rem,1.6vw,0.78rem); letter-spacing:0.13em; text-transform:uppercase;
+    color:var(--accent-deep); line-height:1.5; }
+  .contact{ font-family:var(--mono); font-size:0.78rem; line-height:1.9; color:var(--muted); }
+  .contact a{ color:var(--muted); text-decoration:none; }
+  .contact a:hover{ color:var(--accent); text-decoration:underline; }
+  .contact .lbl{ color:var(--accent); }
+  .band-rule{ height:3px; background:var(--accent); }
+
+  /* ---------- Lead + call to action ---------- */
+  .lead{ margin-top:1.5rem; font-size:clamp(1.02rem,0.95rem + 0.5vw,1.25rem); line-height:1.55;
+    color:var(--ink-soft); max-width:56ch; }
+  .lead b{ color:var(--ink); font-weight:600; }
+
+  .cta-row{ margin-top:1.6rem; display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center; }
+  .btn{ display:inline-flex; align-items:center; gap:0.5rem; font-family:var(--mono); font-size:0.8rem;
+    font-weight:500; letter-spacing:0.04em; text-decoration:none; padding:0.7rem 1.15rem;
+    border:1px solid var(--accent); transition:background .15s ease, color .15s ease; }
+  .btn-solid{ background:var(--accent); color:var(--paper); }
+  .btn-solid:hover{ background:var(--accent-deep); border-color:var(--accent-deep); color:var(--paper); }
+  .btn-ghost{ background:transparent; color:var(--accent); }
+  .btn-ghost:hover{ background:var(--accent-tint); color:var(--accent-deep); }
+
+  /* ---------- Sections ---------- */
+  section{ margin-top:clamp(2.75rem,6vw,4rem); }
+  .sec-title{ display:flex; align-items:center; gap:0.7rem; margin-bottom:1.4rem; }
+  .sec-title .bar{ width:20px; height:3px; background:var(--accent); flex:0 0 auto; }
+  .sec-title h2{ font-family:var(--display); font-weight:700; font-size:0.9rem; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--ink); white-space:nowrap; }
+  .sec-title .fill{ flex:1 1 auto; height:1px; background:var(--line); }
+
+  /* ---------- Experience (timeline rail) ---------- */
+  .job{ position:relative; padding-left:1.5rem; margin-bottom:2.25rem; }
+  .job:last-child{ margin-bottom:0; }
+  .job::before{ content:""; position:absolute; left:0; top:0.6rem; bottom:0.2rem; width:2px; background:var(--accent-tint); }
+  .job::after{ content:""; position:absolute; left:-3px; top:0.55rem; width:8px; height:8px; background:var(--accent); border-radius:50%; }
+  .job-top{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem; flex-wrap:wrap; }
+  .job-title{ font-family:var(--display); font-weight:600; font-size:clamp(1.1rem,1rem + 0.4vw,1.3rem);
+    letter-spacing:-0.008em; color:var(--ink); }
+  .job-dates{ font-family:var(--mono); font-size:0.78rem; color:var(--muted); white-space:nowrap; }
+  .job-org{ margin-top:0.3rem; font-size:0.95rem; font-weight:500; color:var(--muted); }
+  .job-org .org-name{ color:var(--accent-deep); font-weight:600; }
+  .job-org .note{ color:var(--faint); font-style:italic; font-weight:400; }
+  .stack{ margin-top:0.55rem; font-family:var(--mono); font-size:0.72rem; color:var(--accent); line-height:1.7; }
+  .stack .s{ color:var(--faint); margin:0 0.35rem; }
+  /* The separator spans carry no whitespace, so the whole run reads as one
+     unbreakable word. A zero-width space gives the line somewhere to wrap. */
+  .stack .s::after, .skill-group .sg-items .d::after{ content:"\200B"; }
+  ul.bullets{ list-style:none; margin-top:0.9rem; }
+  ul.bullets li{ position:relative; padding-left:1.1rem; margin-bottom:0.55rem; line-height:1.5; color:var(--ink-soft); }
+  ul.bullets li:last-child{ margin-bottom:0; }
+  ul.bullets li::before{ content:""; position:absolute; left:0; top:0.68em; width:7px; height:1.5px; background:var(--accent); }
+  ul.bullets li b{ color:var(--ink); font-weight:600; }
+  .more{ margin-top:0.9rem; font-family:var(--mono); font-size:0.75rem; }
+  .more a{ text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px; }
+  .more a:hover{ border-bottom-color:var(--accent); }
+
+  /* ---------- Skills ---------- */
+  .skills{ display:grid; grid-template-columns:1fr 1fr; column-gap:clamp(1.5rem,5vw,3.5rem); row-gap:1.4rem; }
+  @media (max-width:640px){ .skills{ grid-template-columns:1fr; } }
+  .skill-group .sg-label{ font-family:var(--mono); font-weight:500; font-size:0.7rem; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--accent-deep); margin-bottom:0.35rem; }
+  .skill-group .sg-items{ font-size:0.95rem; line-height:1.55; color:var(--ink-soft); }
+  .skill-group .sg-items .d{ color:var(--accent); opacity:.55; margin:0 0.35rem; font-weight:600; }
+
+  /* ---------- Education ---------- */
+  .edu-top{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem; flex-wrap:wrap; }
+  .edu-degree{ font-family:var(--display); font-weight:600; font-size:1.1rem; color:var(--ink); letter-spacing:-0.006em; }
+  .edu-date{ font-family:var(--mono); font-size:0.78rem; color:var(--muted); white-space:nowrap; }
+  .edu-org{ margin-top:0.3rem; font-size:0.95rem; font-weight:500; color:var(--muted); }
+  .edu-org .org-name{ color:var(--accent-deep); font-weight:600; }
+
+  /* Narrow widths: drop dates under the title so every entry aligns the same
+     way, instead of letting flex-wrap decide per entry by title length. */
+  @media (max-width:640px){
+    .job-top, .edu-top{ flex-direction:column; align-items:flex-start; gap:0.15rem; }
+  }
+
+  /* ---------- Footer ---------- */
+  footer{ margin-top:clamp(3rem,7vw,5rem); border-top:1px solid var(--line); padding:1.5rem 0 0; }
+  .foot-row{ display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;
+    font-family:var(--mono); font-size:0.73rem; color:var(--faint); }
+  .foot-row a{ color:var(--muted); text-decoration:none; }
+  .foot-row a:hover{ color:var(--accent); }
+
+  /* ---------- Print: the PDF is the real artifact, so keep this sane but minimal ---------- */
+  @media print{
+    :root{ --paper:#fff; --ink:#14171C; --ink-soft:#2D333C; --muted:#5A626C;
+      --accent:#0E6E78; --accent-deep:#0A4F57; --accent-tint:#EEF5F4; --line:#E6E3DD; }
+    .cta-row, footer{ display:none; }
+    .wrap{ padding:0; max-width:none; }
+    body{ font-size:11px; }
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="masthead">
+    <div class="identity">
+      <h1 class="name">Jesse Bruce<span class="dot">.</span></h1>
+      <div class="role-line">Senior Software Engineer &mdash; Platform, Full-Stack &amp; AI Tooling</div>
+    </div>
+    <div class="contact">
+      <div><a href="mailto:jessebrucework@gmail.com">jessebrucework@gmail.com</a></div>
+      <div><a href="https://github.com/jessebruce" rel="me">github.com/jessebruce</a></div>
+      <div><span class="lbl">&#9656;</span> Surprise, Arizona</div>
+    </div>
+  </header>
+  <div class="band-rule"></div>
+
+  <p class="lead">
+    Senior software engineer, 8+ years across C#/.NET, TypeScript, C/C++, and Python. I specialize in
+    end-to-end platform modernization &mdash; installer, datastore, messaging, and secrets &mdash; and the internal
+    <b>Claude Code / MCP developer tooling</b> that scales an engineering org and ships product. Earlier work spanned NLP
+    pipelines and core-algorithm optimization.
+  </p>
+
+  <div class="cta-row">
+    <a class="btn btn-solid" href="Jesse_Bruce_Resume.pdf">Download résumé (PDF)</a>
+    <a class="btn btn-ghost" href="mailto:jessebrucework@gmail.com">Get in touch</a>
+  </div>
+
+
+  <section>
+    <div class="sec-title"><span class="bar"></span><h2>Experience</h2><span class="fill"></span></div>
+
+    <div class="job">
+      <div class="job-top">
+        <div class="job-title">Senior Software Engineer, Platform &amp; Full-Stack</div>
+        <div class="job-dates">Feb 2021 &ndash; Present</div>
+      </div>
+      <div class="job-org"><span class="org-name">FaceFirst, Inc.</span> (acquired by Gatekeeper Systems) &middot; Encino, CA</div>
+      <div class="stack">C#<span class="s">&middot;</span>.NET<span class="s">&middot;</span>C++<span class="s">&middot;</span>React<span class="s">&middot;</span>TypeScript<span class="s">&middot;</span>PostgreSQL<span class="s">&middot;</span>NATS JetStream</div>
+      <ul class="bullets">
+        <li><b>Primary owner of the deployment, platform &amp; data layer</b> of a distributed, on-prem facial-recognition product, and the team's senior reviewer setting the quality bar across the codebase (<b>~90% PR merge rate</b>).</li>
+        <li><b>Led a ground-up installer overhaul</b>: rebuilt the server installer from a single-page WPF form into a multi-page wizard with a <b>slim installer (~70 MB vs ~2.5 GB, service packages OTA)</b>, resumable installs, license registration, and edge pre-staging.</li>
+        <li><b>Built and own the team's org-wide Claude Code plugin marketplace</b> (TypeScript): Jira/Confluence/Playwright <b>MCP servers</b> (~40 tools, ~25 skills) adopted across engineering, with release-please autoversioning.</li>
+        <li><b>Delivered the platform overhauls through the AI workflow I built</b> &mdash; Claude Code tooling under my review; the AI-assisted installer rebuild is <b>already deployed at customer sites</b>.</li>
+        <li>Drove the datastore migration from <b>MongoDB to PostgreSQL 17</b> across installer and platform, and moved inter-service messaging and <b>health/status reporting</b> onto <b>NATS JetStream</b> &mdash; alongside a secrets overhaul replacing machine-bound Windows DPAPI with a portable, single-key encryption model.</li>
+        <li><b>Currently:</b> decomposing the platform into lightweight <b>containerized Linux services</b> with per-service scaling and NATS-based config &mdash; the path to cloud deployment &mdash; and driving a full UI rebuild through the Claude Code workflow.</li>
+      </ul>
+      <div class="more"><a href="Jesse_Bruce_Resume.pdf">Full detail in the PDF &rarr;</a></div>
+    </div>
+
+    <div class="job">
+      <div class="job-top">
+        <div class="job-title">Software Engineer II</div>
+        <div class="job-dates">Jun 2018 &ndash; Feb 2021</div>
+      </div>
+      <div class="job-org"><span class="org-name">Economic Modeling Specialists Intl. (Emsi)</span> &middot; Moscow, ID <span class="note">&mdash; founding member, Classifiers &amp; Extractors team</span></div>
+      <div class="stack">D (Dlang)<span class="s">&middot;</span>Python<span class="s">&middot;</span>C<span class="s">&middot;</span>Java<span class="s">&middot;</span>AWS<span class="s">&middot;</span>Terraform<span class="s">&middot;</span>SQLite<span class="s">&middot;</span>JNA<span class="s">&middot;</span>GitLab</div>
+      <ul class="bullets">
+        <li>Founding member of the Classifiers &amp; Extractors team; researched and implemented an <b>NLP classification &amp; disambiguation model</b> from academic literature.</li>
+        <li><b>Led a team of 5 curators</b> building the initial <b>50,000+ item</b> training and test set; grew the team to <b>3 full-time</b>.</li>
+        <li>Drove <b>two major overhauls</b> improving accuracy, precision, and load times &mdash; profiling and tuning with perf, valgrind, and document-throughput analysis.</li>
+      </ul>
+      <div class="more"><a href="Jesse_Bruce_Resume.pdf">Full detail in the PDF &rarr;</a></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title"><span class="bar"></span><h2>Technical Skills</h2><span class="fill"></span></div>
+    <div class="skills">
+      <div class="skill-group"><div class="sg-label">Languages</div>
+        <div class="sg-items">C#<span class="d">&middot;</span>C++<span class="d">&middot;</span>C<span class="d">&middot;</span>Python<span class="d">&middot;</span>TypeScript<span class="d">&middot;</span>D (Dlang)<span class="d">&middot;</span>JavaScript</div></div>
+      <div class="skill-group"><div class="sg-label">Backend &amp; Web</div>
+        <div class="sg-items">.NET<span class="d">&middot;</span>ASP.NET Core<span class="d">&middot;</span>React<span class="d">&middot;</span>Vite<span class="d">&middot;</span>MUI</div></div>
+      <div class="skill-group"><div class="sg-label">Data &amp; ML</div>
+        <div class="sg-items">PostgreSQL<span class="d">&middot;</span>MongoDB<span class="d">&middot;</span>ONNX Runtime<span class="d">&middot;</span>NLP &amp; classification models<span class="d">&middot;</span>SQLite</div></div>
+      <div class="skill-group"><div class="sg-label">Cloud &amp; Infra</div>
+        <div class="sg-items">AWS<span class="d">&middot;</span>Azure Functions<span class="d">&middot;</span>Docker<span class="d">&middot;</span>NATS JetStream<span class="d">&middot;</span>Terraform<span class="d">&middot;</span>Linux</div></div>
+      <div class="skill-group"><div class="sg-label">AI &amp; Dev Tooling</div>
+        <div class="sg-items">Claude Code<span class="d">&middot;</span>MCP servers<span class="d">&middot;</span>plugin &amp; skill authoring<span class="d">&middot;</span>Git / GitHub<span class="d">&middot;</span>CI/CD</div></div>
+      <div class="skill-group"><div class="sg-label">Profiling &amp; Perf</div>
+        <div class="sg-items">perf<span class="d">&middot;</span>valgrind<span class="d">&middot;</span>throughput analysis<span class="d">&middot;</span>optimization</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title"><span class="bar"></span><h2>Education</h2><span class="fill"></span></div>
+    <div class="edu-top">
+      <div class="edu-degree">B.S., Computer Science</div>
+      <div class="edu-date">Fall 2020</div>
+    </div>
+    <div class="edu-org"><span class="org-name">Washington State University</span> &middot; Pullman, WA</div>
+  </section>
+
+</main>
+
+<div class="wrap tail">
+  <footer>
+    <div class="foot-row">
+      <div>Jesse Bruce &middot; Surprise, Arizona</div>
+      <div>
+        <a href="Jesse_Bruce_Resume.pdf">Résumé (PDF)</a> &middot;
+        <a href="mailto:jessebrucework@gmail.com">Email</a> &middot;
+        <a href="https://github.com/jessebruce" rel="me">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
